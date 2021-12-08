@@ -1,0 +1,13 @@
+<div *ngIf="user">
+<h3>Редагувати новину</h3>
+<div class="container">
+<input class="text" type="hidden" [(ngModel)]="user.id">
+<label id="na" for="name">Name: </label>
+<input class="text" type="text" [(ngModel)]="user.name"><br><br>
+<label id="pi"  for="photo">Picture: </label>
+<input class="text" type="text" [(ngModel)]="user.picture"><br><br>
+<label id="n" for="news">News: </label>
+<input class="text" type="text"  [(ngModel)]="user.news" style = " word-wrap: break-word; word-break: break-all"><br><br>
+<button class="butt" (click)="updateUser()">Редагувати</button>
+</div>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="head">
+        <img src="" />
+        <h1> </h1>
+    </div>
+    <div class="body" >
+        <form class="ui-form" #form2="ngForm" (ngSubmit) = "compare()">
+            
+           <a ><h3>Авторизація</h3></a>
+
+            <div class="form-row">
+                <input type="text" [(ngModel)]="loginForm.login" [ngModelOptions]="{standalone: true}"  class="email" id="email" required autocomplete="off"><label>Login</label>
+            </div>
+            <div class="form-row">
+                <input type="password" [(ngModel)]="loginForm.password" [ngModelOptions]="{standalone: true}" class="password" id="password" required autocomplete="off"><label for="password">Password</label>
+            </div>
+            <p><input type="submit" id='but'  value="Вхід"></p>
+        </form>
+    </div>
+</div>
+
+
+

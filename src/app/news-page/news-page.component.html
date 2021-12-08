@@ -1,0 +1,44 @@
+
+
+<nav class="top-menu">
+    <a class="navbar-logo" routerLink=""><img src="http://www.univ.kiev.ua/img/photo/gerb.jpg" height="60" width="60"></a>
+    <ul class="menu-main">
+        <li><a routerLink="/app">Новини</a></li>
+        <li><a routerLink="/teachers">Вчителі</a></li>
+        <li><a routerLink="/admin">Aдміністратори</a></li>
+    </ul>
+</nav>
+
+<h2 class="head">Додати новину</h2>
+
+<div class="container">
+<form #form1="ngForm" (ngSubmit) = "addUser(form1.value)">
+    <input class="text" type="hidden" name="id" placeholder="Enter id.." value="0" ngModel>
+    <label id="na" for="name">Name: </label>
+    <input class="text" type="text" name="name" placeholder="Enter name.." value="" ngModel><br>
+    <label id="pi"  for="photo">Picture: </label>
+    <input class="text" type="text" name="picture" placeholder="Add a picture..." value="" ngModel><br>
+    
+    <label id="n" for="news">News: </label><br />
+    <input class="text" type="text" name="news" value=""  placeholder="Write your news.." style="height:200px" ngModel><br>
+    <input class="butt" type="submit" value="Додати" >
+</form>
+</div>
+<h2 class = "head">Список новин</h2>
+<div class="container" >
+
+<ul>
+    <li *ngFor="let n of userList"
+    (click)="onSelect(n)"  style="list-style-type: none; border-radius: 5px; background-color: #f2f2f2;  margin-left: 15%; margin-right: 15%; margin-top: 15px; margin-bottom: 10px; text-align: center">
+    
+    <h4>{{n.name}}</h4>  {{n.news}} <br><br> <img src="{{n.picture}}" height="120" width="120"><br><br>
+
+    <span class="butt" (click)="deleteUser(n)">Видалити</span><br><br><br><hr/>
+    </li>
+</ul>
+</div>
+<div>
+    <app-update [user] = "selectedUser" (updeted)="updateUsers()"></app-update>
+</div>
+
+<router-outlet></router-outlet>
